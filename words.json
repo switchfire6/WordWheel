@@ -1,0 +1,740 @@
+[
+  {
+    "Word": "Slab",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slæb/",
+    "ExampleSentence": "The big dog slept on a slab of stone.",
+    "RhymesWith": "cab, lab",
+    "ImageIdea": "A flat piece of stone or concrete"
+  },
+  {
+    "Word": "Slack",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slæk/",
+    "ExampleSentence": "The rope was slack, not tight.",
+    "RhymesWith": "back, pack",
+    "ImageIdea": "A loose rope"
+  },
+  {
+    "Word": "Slam",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slæm/",
+    "ExampleSentence": "Don't slam the door!",
+    "RhymesWith": "ham, jam",
+    "ImageIdea": "A door closing loudly"
+  },
+  {
+    "Word": "Slang",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slæŋ/",
+    "ExampleSentence": "\"Cool\" is a common slang word.",
+    "RhymesWith": "hang, bang",
+    "ImageIdea": "Speech bubble with \"cool!\""
+  },
+  {
+    "Word": "Slant",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slænt/",
+    "ExampleSentence": "The roof has a steep slant.",
+    "RhymesWith": "ant, plant",
+    "ImageIdea": "A tilted line or roof"
+  },
+  {
+    "Word": "Slap",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slæp/",
+    "ExampleSentence": "He gave his friend a high-five slap.",
+    "RhymesWith": "cap, map",
+    "ImageIdea": "Two hands giving a high-five"
+  },
+  {
+    "Word": "Slash",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slæʃ/",
+    "ExampleSentence": "The superhero made a slash with his sword.",
+    "RhymesWith": "cash, dash",
+    "ImageIdea": "A diagonal cutting mark"
+  },
+  {
+    "Word": "Slat",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slæt/",
+    "ExampleSentence": "The fence was made of wooden slats.",
+    "RhymesWith": "cat, hat",
+    "ImageIdea": "A thin strip of wood"
+  },
+  {
+    "Word": "Slate",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/sleɪt/",
+    "ExampleSentence": "We wrote on a slate with chalk.",
+    "RhymesWith": "late, gate",
+    "ImageIdea": "A small chalkboard"
+  },
+  {
+    "Word": "Slaw",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slɔː/",
+    "ExampleSentence": "I like coleslaw, or just slaw.",
+    "RhymesWith": "draw, paw",
+    "ImageIdea": "A bowl of coleslaw"
+  },
+  {
+    "Word": "Slay",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/sleɪ/",
+    "ExampleSentence": "The knight went to slay the dragon.",
+    "RhymesWith": "play, day",
+    "ImageIdea": "A knight with a sword"
+  },
+  {
+    "Word": "Sled",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slɛd/",
+    "ExampleSentence": "We ride the sled in the snow.",
+    "RhymesWith": "bed, red",
+    "ImageIdea": "A child on a sled in snow"
+  },
+  {
+    "Word": "Sleek",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/sliːk/",
+    "ExampleSentence": "The cat had sleek, black fur.",
+    "RhymesWith": "cheek, week",
+    "ImageIdea": "A smooth, shiny black cat"
+  },
+  {
+    "Word": "Sleep",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/sliːp/",
+    "ExampleSentence": "It's time to go to sleep.",
+    "RhymesWith": "deep, jeep",
+    "ImageIdea": "A child sleeping in a bed"
+  },
+  {
+    "Word": "Sleet",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/sliːt/",
+    "ExampleSentence": "Sleet is like icy rain.",
+    "RhymesWith": "street, feet",
+    "ImageIdea": "Falling ice pellets"
+  },
+  {
+    "Word": "Sleeve",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/sliːv/",
+    "ExampleSentence": "My shirt has a long sleeve.",
+    "RhymesWith": "weave, leave",
+    "ImageIdea": "The arm part of a shirt"
+  },
+  {
+    "Word": "Sleigh",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/sleɪ/",
+    "ExampleSentence": "Santa rides in a sleigh.",
+    "RhymesWith": "weigh, neigh",
+    "ImageIdea": "Santa's sleigh with reindeer"
+  },
+  {
+    "Word": "Slice",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slaɪs/",
+    "ExampleSentence": "Can I have a slice of pizza?",
+    "RhymesWith": "nice, mice",
+    "ImageIdea": "A slice of pizza or cake"
+  },
+  {
+    "Word": "Slick",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slɪk/",
+    "ExampleSentence": "The road was slick with ice.",
+    "RhymesWith": "kick, pick",
+    "ImageIdea": "A wet, slippery surface"
+  },
+  {
+    "Word": "Slide",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slaɪd/",
+    "ExampleSentence": "Let's go down the slide!",
+    "RhymesWith": "ride, wide",
+    "ImageIdea": "A playground slide"
+  },
+  {
+    "Word": "Slim",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slɪm/",
+    "ExampleSentence": "The book was very slim.",
+    "RhymesWith": "trim, him",
+    "ImageIdea": "A thin person or object"
+  },
+  {
+    "Word": "Slime",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slaɪm/",
+    "ExampleSentence": "Kids love to play with gooey slime.",
+    "RhymesWith": "time, lime",
+    "ImageIdea": "A puddle of green goo"
+  },
+  {
+    "Word": "Sling",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slɪŋ/",
+    "ExampleSentence": "He used a sling to throw the stone.",
+    "RhymesWith": "king, ring",
+    "ImageIdea": "A slingshot or an arm sling"
+  },
+  {
+    "Word": "Slip",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slɪp/",
+    "ExampleSentence": "Be careful not to slip on the ice.",
+    "RhymesWith": "chip, lip",
+    "ImageIdea": "A person slipping on a banana peel"
+  },
+  {
+    "Word": "Slit",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slɪt/",
+    "ExampleSentence": "He made a small slit in the paper.",
+    "RhymesWith": "fit, kit",
+    "ImageIdea": "A narrow opening or cut"
+  },
+  {
+    "Word": "Slob",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slɒb/",
+    "ExampleSentence": "Don't be a slob, clean your room!",
+    "RhymesWith": "rob, cob",
+    "ImageIdea": "A messy room or person"
+  },
+  {
+    "Word": "Slog",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slɒg/",
+    "ExampleSentence": "It was a long slog up the hill.",
+    "RhymesWith": "dog, fog",
+    "ImageIdea": "Someone walking tiredly uphill"
+  },
+  {
+    "Word": "Slop",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slɒp/",
+    "ExampleSentence": "The pigs eat slop from the trough.",
+    "RhymesWith": "hop, top",
+    "ImageIdea": "Muddy, messy food for pigs"
+  },
+  {
+    "Word": "Slope",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/sloʊp/",
+    "ExampleSentence": "We skied down the gentle slope.",
+    "RhymesWith": "hope, rope",
+    "ImageIdea": "A grassy hill or ski hill"
+  },
+  {
+    "Word": "Slosh",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slɒʃ/",
+    "ExampleSentence": "Water began to slosh in the bucket.",
+    "RhymesWith": "wash, gosh",
+    "ImageIdea": "Water splashing in a bucket"
+  },
+  {
+    "Word": "Slot",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slɒt/",
+    "ExampleSentence": "Put the coin in the slot.",
+    "RhymesWith": "hot, pot",
+    "ImageIdea": "A coin slot in a machine"
+  },
+  {
+    "Word": "Sloth",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/sloʊθ/ or /slɒθ/",
+    "ExampleSentence": "A sloth moves very slowly.",
+    "RhymesWith": "growth (approx)",
+    "ImageIdea": "A sloth hanging from a tree"
+  },
+  {
+    "Word": "Slow",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/sloʊ/",
+    "ExampleSentence": "A turtle is very slow.",
+    "RhymesWith": "go, snow",
+    "ImageIdea": "A turtle or snail"
+  },
+  {
+    "Word": "Slug",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slʌg/",
+    "ExampleSentence": "A slimy slug crawled on the leaf.",
+    "RhymesWith": "bug, hug",
+    "ImageIdea": "A garden slug"
+  },
+  {
+    "Word": "Slum",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slʌm/",
+    "ExampleSentence": "He grew up in a poor slum.",
+    "RhymesWith": "gum, hum",
+    "ImageIdea": "A depiction of run-down houses"
+  },
+  {
+    "Word": "Slump",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slʌmp/",
+    "ExampleSentence": "He felt a slump in his energy.",
+    "RhymesWith": "jump, bump",
+    "ImageIdea": "Someone slouching tiredly"
+  },
+  {
+    "Word": "Slur",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slɜːr/",
+    "ExampleSentence": "He began to slur his words.",
+    "RhymesWith": "purr, her",
+    "ImageIdea": "Wavy lines representing speech"
+  },
+  {
+    "Word": "Slush",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slʌʃ/",
+    "ExampleSentence": "My boots got wet in the melting slush.",
+    "RhymesWith": "brush, hush",
+    "ImageIdea": "Melting snow on the ground"
+  },
+  {
+    "Word": "Sly",
+    "StartsWith": "sl",
+    "Syllables": 1,
+    "SimplePronunciation": "/slaɪ/",
+    "ExampleSentence": "The fox is a sly animal.",
+    "RhymesWith": "fly, try",
+    "ImageIdea": "A cunning-looking fox"
+  },
+  {
+    "Word": "Black",
+    "StartsWith": "bl",
+    "Syllables": 1,
+    "SimplePronunciation": "/blæk/",
+    "ExampleSentence": "The cat was black with green eyes.",
+    "RhymesWith": "track, sack",
+    "ImageIdea": "A black cat"
+  },
+  {
+    "Word": "Blast",
+    "StartsWith": "bl",
+    "Syllables": 1,
+    "SimplePronunciation": "/blæst/",
+    "ExampleSentence": "The rocket will blast off into space!",
+    "RhymesWith": "cast, fast",
+    "ImageIdea": "A rocket taking off with fire"
+  },
+  {
+    "Word": "Bleed",
+    "StartsWith": "bl",
+    "Syllables": 1,
+    "SimplePronunciation": "/bliːd/",
+    "ExampleSentence": "If you get a cut, it might bleed.",
+    "RhymesWith": "need, seed",
+    "ImageIdea": "A small red droplet"
+  },
+  {
+    "Word": "Blend",
+    "StartsWith": "bl",
+    "Syllables": 1,
+    "SimplePronunciation": "/blɛnd/",
+    "ExampleSentence": "We blend fruits to make a smoothie.",
+    "RhymesWith": "send, friend",
+    "ImageIdea": "A blender with colorful fruits"
+  },
+  {
+    "Word": "Bliss",
+    "StartsWith": "bl",
+    "Syllables": 1,
+    "SimplePronunciation": "/blɪs/",
+    "ExampleSentence": "Lying in a hammock is pure bliss.",
+    "RhymesWith": "kiss, miss",
+    "ImageIdea": "Someone smiling in a hammock"
+  },
+  {
+    "Word": "Block",
+    "StartsWith": "bl",
+    "Syllables": 1,
+    "SimplePronunciation": "/blɒk/",
+    "ExampleSentence": "Let's build a tower with this block.",
+    "RhymesWith": "clock, rock",
+    "ImageIdea": "A colorful toy building block"
+  },
+  {
+    "Word": "Blow",
+    "StartsWith": "bl",
+    "Syllables": 1,
+    "SimplePronunciation": "/bloʊ/",
+    "ExampleSentence": "Blow out the candles on your cake!",
+    "RhymesWith": "know, snow",
+    "ImageIdea": "A child blowing out candles"
+  },
+  {
+    "Word": "Blue",
+    "StartsWith": "bl",
+    "Syllables": 1,
+    "SimplePronunciation": "/bluː/",
+    "ExampleSentence": "The sky is blue today.",
+    "RhymesWith": "shoe, true",
+    "ImageIdea": "A bright blue sky with clouds"
+  },
+  {
+    "Word": "Blush",
+    "StartsWith": "bl",
+    "Syllables": 1,
+    "SimplePronunciation": "/blʌʃ/",
+    "ExampleSentence": "She might blush if she's shy.",
+    "RhymesWith": "crush, hush",
+    "ImageIdea": "A face with rosy cheeks"
+  },
+  {
+    "Word": "Clam",
+    "StartsWith": "cl",
+    "Syllables": 1,
+    "SimplePronunciation": "/klæm/",
+    "ExampleSentence": "We found a clam shell on the beach.",
+    "RhymesWith": "ham, ram",
+    "ImageIdea": "A seashell with a pearl inside"
+  },
+  {
+    "Word": "Clap",
+    "StartsWith": "cl",
+    "Syllables": 1,
+    "SimplePronunciation": "/klæp/",
+    "ExampleSentence": "Let's clap our hands to the music!",
+    "RhymesWith": "trap, map",
+    "ImageIdea": "Two hands clapping"
+  },
+  {
+    "Word": "Claw",
+    "StartsWith": "cl",
+    "Syllables": 1,
+    "SimplePronunciation": "/klɔː/",
+    "ExampleSentence": "The cat sharpened its claw.",
+    "RhymesWith": "draw, paw",
+    "ImageIdea": "A cat's paw with claws extended"
+  },
+  {
+    "Word": "Clean",
+    "StartsWith": "cl",
+    "Syllables": 1,
+    "SimplePronunciation": "/kliːn/",
+    "ExampleSentence": "It's important to keep your hands clean.",
+    "RhymesWith": "green, mean",
+    "ImageIdea": "Hands with soap bubbles"
+  },
+  {
+    "Word": "Click",
+    "StartsWith": "cl",
+    "Syllables": 1,
+    "SimplePronunciation": "/klɪk/",
+    "ExampleSentence": "Click the mouse to start the game.",
+    "RhymesWith": "brick, sick",
+    "ImageIdea": "A computer mouse with a click icon"
+  },
+  {
+    "Word": "Climb",
+    "StartsWith": "cl",
+    "Syllables": 1,
+    "SimplePronunciation": "/klaɪm/",
+    "ExampleSentence": "Monkeys love to climb trees.",
+    "RhymesWith": "lime, time",
+    "ImageIdea": "A monkey climbing a tree"
+  },
+  {
+    "Word": "Clock",
+    "StartsWith": "cl",
+    "Syllables": 1,
+    "SimplePronunciation": "/klɒk/",
+    "ExampleSentence": "Look at the clock to see the time.",
+    "RhymesWith": "rock, sock",
+    "ImageIdea": "A wall clock with hands"
+  },
+  {
+    "Word": "Cloud",
+    "StartsWith": "cl",
+    "Syllables": 1,
+    "SimplePronunciation": "/klaʊd/",
+    "ExampleSentence": "A fluffy white cloud floated by.",
+    "RhymesWith": "proud, loud",
+    "ImageIdea": "A white fluffy cloud in the sky"
+  },
+  {
+    "Word": "Club",
+    "StartsWith": "cl",
+    "Syllables": 1,
+    "SimplePronunciation": "/klʌb/",
+    "ExampleSentence": "He joined the after-school art club.",
+    "RhymesWith": "sub, tub",
+    "ImageIdea": "Kids painting together"
+  },
+  {
+    "Word": "Flag",
+    "StartsWith": "fl",
+    "Syllables": 1,
+    "SimplePronunciation": "/flæɡ/",
+    "ExampleSentence": "We waved the flag at the parade.",
+    "RhymesWith": "bag, tag",
+    "ImageIdea": "A colorful flag waving"
+  },
+  {
+    "Word": "Flame",
+    "StartsWith": "fl",
+    "Syllables": 1,
+    "SimplePronunciation": "/fleɪm/",
+    "ExampleSentence": "The candle had a bright yellow flame.",
+    "RhymesWith": "game, name",
+    "ImageIdea": "A candle with a flickering flame"
+  },
+  {
+    "Word": "Flash",
+    "StartsWith": "fl",
+    "Syllables": 1,
+    "SimplePronunciation": "/flæʃ/",
+    "ExampleSentence": "A flash of lightning lit the sky.",
+    "RhymesWith": "cash, dash",
+    "ImageIdea": "A lightning bolt"
+  },
+  {
+    "Word": "Flat",
+    "StartsWith": "fl",
+    "Syllables": 1,
+    "SimplePronunciation": "/flæt/",
+    "ExampleSentence": "The pancake was round and flat.",
+    "RhymesWith": "cat, hat",
+    "ImageIdea": "A pancake on a plate"
+  },
+  {
+    "Word": "Float",
+    "StartsWith": "fl",
+    "Syllables": 1,
+    "SimplePronunciation": "/floʊt/",
+    "ExampleSentence": "A rubber duck can float on water.",
+    "RhymesWith": "boat, coat",
+    "ImageIdea": "A rubber duck in a bathtub"
+  },
+  {
+    "Word": "Floor",
+    "StartsWith": "fl",
+    "Syllables": 1,
+    "SimplePronunciation": "/flɔːr/",
+    "ExampleSentence": "Don't drop your toys on the floor.",
+    "RhymesWith": "door, more",
+    "ImageIdea": "A wooden floor pattern"
+  },
+  {
+    "Word": "Flow",
+    "StartsWith": "fl",
+    "Syllables": 1,
+    "SimplePronunciation": "/floʊ/",
+    "ExampleSentence": "The river will flow to the sea.",
+    "RhymesWith": "grow, snow",
+    "ImageIdea": "A river winding through hills"
+  },
+  {
+    "Word": "Flute",
+    "StartsWith": "fl",
+    "Syllables": 1,
+    "SimplePronunciation": "/fluːt/",
+    "ExampleSentence": "She plays beautiful music on the flute.",
+    "RhymesWith": "cute, newt",
+    "ImageIdea": "A person playing a flute"
+  },
+  {
+    "Word": "Fly",
+    "StartsWith": "fl",
+    "Syllables": 1,
+    "SimplePronunciation": "/flaɪ/",
+    "ExampleSentence": "Birds can fly high in the sky.",
+    "RhymesWith": "buy, cry",
+    "ImageIdea": "A bird flying"
+  },
+  {
+    "Word": "Glad",
+    "StartsWith": "gl",
+    "Syllables": 1,
+    "SimplePronunciation": "/ɡlæd/",
+    "ExampleSentence": "I'm glad to see you today!",
+    "RhymesWith": "bad, dad",
+    "ImageIdea": "A smiling face"
+  },
+  {
+    "Word": "Glass",
+    "StartsWith": "gl",
+    "Syllables": 1,
+    "SimplePronunciation": "/ɡlæs/",
+    "ExampleSentence": "Drink your milk from the glass.",
+    "RhymesWith": "pass, grass",
+    "ImageIdea": "A clear drinking glass"
+  },
+  {
+    "Word": "Gleam",
+    "StartsWith": "gl",
+    "Syllables": 1,
+    "SimplePronunciation": "/ɡliːm/",
+    "ExampleSentence": "The polished car began to gleam.",
+    "RhymesWith": "dream, cream",
+    "ImageIdea": "A shiny car with sparkles"
+  },
+  {
+    "Word": "Glide",
+    "StartsWith": "gl",
+    "Syllables": 1,
+    "SimplePronunciation": "/ɡlaɪd/",
+    "ExampleSentence": "Eagles glide through the air.",
+    "RhymesWith": "ride, wide",
+    "ImageIdea": "An eagle soaring"
+  },
+  {
+    "Word": "Globe",
+    "StartsWith": "gl",
+    "Syllables": 1,
+    "SimplePronunciation": "/ɡloʊb/",
+    "ExampleSentence": "We can find countries on a globe.",
+    "RhymesWith": "robe (approx)",
+    "ImageIdea": "A spinning globe of the Earth"
+  },
+  {
+    "Word": "Glow",
+    "StartsWith": "gl",
+    "Syllables": 1,
+    "SimplePronunciation": "/ɡloʊ/",
+    "ExampleSentence": "Fireflies glow in the dark.",
+    "RhymesWith": "know, slow",
+    "ImageIdea": "A firefly lighting up"
+  },
+  {
+    "Word": "Glue",
+    "StartsWith": "gl",
+    "Syllables": 1,
+    "SimplePronunciation": "/ɡluː/",
+    "ExampleSentence": "Use glue to stick the paper together.",
+    "RhymesWith": "blue, true",
+    "ImageIdea": "A bottle of glue with a drop"
+  },
+  {
+    "Word": "Plan",
+    "StartsWith": "pl",
+    "Syllables": 1,
+    "SimplePronunciation": "/plæn/",
+    "ExampleSentence": "What's the plan for today?",
+    "RhymesWith": "can, man",
+    "ImageIdea": "A checklist or a map"
+  },
+  {
+    "Word": "Plant",
+    "StartsWith": "pl",
+    "Syllables": 1,
+    "SimplePronunciation": "/plænt/",
+    "ExampleSentence": "We will plant a seed in the garden.",
+    "RhymesWith": "ant, slant",
+    "ImageIdea": "A small seedling in soil"
+  },
+  {
+    "Word": "Play",
+    "StartsWith": "pl",
+    "Syllables": 1,
+    "SimplePronunciation": "/pleɪ/",
+    "ExampleSentence": "Let's go outside and play!",
+    "RhymesWith": "day, say",
+    "ImageIdea": "Children playing with a ball"
+  },
+  {
+    "Word": "Please",
+    "StartsWith": "pl",
+    "Syllables": 1,
+    "SimplePronunciation": "/pliːz/",
+    "ExampleSentence": "Say \"please\" when you ask for something.",
+    "RhymesWith": "cheese, sneeze",
+    "ImageIdea": "A speech bubble with \"Please!\""
+  },
+  {
+    "Word": "Plot",
+    "StartsWith": "pl",
+    "Syllables": 1,
+    "SimplePronunciation": "/plɒt/",
+    "ExampleSentence": "The pirates had a secret plot.",
+    "RhymesWith": "hot, spot",
+    "ImageIdea": "A treasure map with an X"
+  },
+  {
+    "Word": "Plow",
+    "StartsWith": "pl",
+    "Syllables": 1,
+    "SimplePronunciation": "/plaʊ/",
+    "ExampleSentence": "The farmer uses a plow in the field.",
+    "RhymesWith": "cow, now",
+    "ImageIdea": "A tractor plowing a field"
+  },
+  {
+    "Word": "Plug",
+    "StartsWith": "pl",
+    "Syllables": 1,
+    "SimplePronunciation": "/plʌɡ/",
+    "ExampleSentence": "Put the plug into the socket.",
+    "RhymesWith": "bug, hug",
+    "ImageIdea": "An electrical plug and socket"
+  },
+  {
+    "Word": "Plum",
+    "StartsWith": "pl",
+    "Syllables": 1,
+    "SimplePronunciation": "/plʌm/",
+    "ExampleSentence": "A plum is a sweet, juicy fruit.",
+    "RhymesWith": "gum, sum",
+    "ImageIdea": "A purple plum"
+  },
+  {
+    "Word": "Plus",
+    "StartsWith": "pl",
+    "Syllables": 1,
+    "SimplePronunciation": "/plʌs/",
+    "ExampleSentence": "Two plus two equals four.",
+    "RhymesWith": "bus (approx)",
+    "ImageIdea": "A plus sign (+)"
+  }
+]

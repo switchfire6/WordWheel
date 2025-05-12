@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Speech Therapy Word Wheel</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #4CAF50; /* Green */
+            --secondary-color: #FFC107; /* Amber */
+            --accent-color: #2196F3; /* Blue */
+            --text-color: #333;
+            --bg-color: #f0f8ff; /* AliceBlue */
+            --light-text: #fff;
+            --font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #game-container {
+            width: 100%;
+            max-width: 900px;
+            padding: 15px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: calc(1.5em + 1vw);
+        }
+
+        #filter-buttons-container {
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .filter-button {
+            padding: 10px 15px;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .filter-button:hover {
+            background-color: #ffac33;
+        }
+
+        .filter-button.active {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            transform: scale(1.05);
+        }
+
+        #main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        @media (min-width: 768px) {
+            #main-content {
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: space-around;
+            }
+        }
+
+        #wheel-area {
+            position: relative;
+            width: 300px; 
+            height: 300px;
+            margin: 0 auto; 
+        }
+
+        #wheel-container {
+            width: 100%;
+            height: 100%;
+            background-color: #eeeeee; 
+            border-radius: 50%;
+            overflow: hidden; 
+        }
+        
+        #wheel-container canvas {
+            display: block; 
+        }
+
+        #pointer-container {
+            position: absolute;
+            top: -10px; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            z-index: 10;
+        }
+
+        #pointer {
+            font-size: 30px;
+            color: var(--accent-color);
+            line-height: 1;
+        }
+
+        #controls-display-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            max-width: 350px;
+        }
+        
+        @media (min-width: 768px) {
+            #controls-display-area {
+                 width: 45%;
+            }
+             #wheel-area {
+                width: 350px;
+                height: 350px;
+            }
+        }
+         @media (min-width: 1024px) {
+             #wheel-area {
+                width: 400px;
+                height: 400px;
+            }
+        }
+
+        #spinButton {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            font-weight: bold;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            touch-action: manipulation; 
+        }
+
+        #spinButton:hover {
+            background-color: #3e8e41;
+        }
+
+        #spinButton:active {
+            transform: scale(0.95);
+        }
+
+        #word-display-area {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 90%;
+            min-height: 80px;
+        }
+
+        #selectedWord {
+            color: var(--accent-color);
+            font-size: 1.8em;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+
+        #exampleSentence {
+            font-size: 1em;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        #visualizationArea {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 90%;
+            min-height: 100px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em; 
+        }
+        #visualizationArea svg {
+            max-width: 100px;
+            max-height: 100px;
+            fill: var(--text-color); /* SVG fill color */
+        }
+        #visualizationArea img { 
+            max-width: 100px;
+            max-height: 100px;
+            object-fit: contain;
+        }
+        #visualizationArea span { /* For emojis */
+            font-size: 3em; /* Make emojis larger */
+        }
+        #visualizationArea p { /* For text placeholders */
+            font-size: 0.6em;
+            line-height: 1.2;
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <header>
+            <h1>Word Wheel Fun!</h1>
+        </header>
+        <div id="filter-buttons-container">
+            <!-- Filter buttons will be populated here -->
+        </div>
+        <main id="main-content">
+            <div id="wheel-area">
+                <div id="wheel-container">
+                    <!-- Three.js canvas will be appended here -->
+                </div>
+                <div id="pointer-container">
+                    <div id="pointer">▼</div>
+                </div>
+            </div>
+            <div id="controls-display-area">
+                <button id="spinButton" disabled>Spin!</button>
+                <div id="word-display-area">
+                    <h2 id="selectedWord">- - -</h2>
+                    <p id="exampleSentence">Loading words...</p>
+                </div>
+                <div id="visualizationArea">
+                    <span>🎨</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // --- Global Variables ---
+        let ALL_WORDS_DATA = []; // Will be populated by fetching words.json
+        let scene, camera, renderer;
+        let wheelGroup;
+        let currentWords = [];
+        let isSpinning = false;
+        let targetSegmentIndex = 0;
+
+        const wheelContainer = document.getElementById('wheel-container');
+        const spinButton = document.getElementById('spinButton');
+        const filterButtonsContainer = document.getElementById('filter-buttons-container');
+        const selectedWordEl = document.getElementById('selectedWord');
+        const exampleSentenceEl = document.getElementById('exampleSentence');
+        const visualizationArea = document.getElementById('visualizationArea');
+
+        const WHEEL_RADIUS = 1.5;
+        const TEXT_PLANE_SCALE_FACTOR = 0.75; 
+        const TEXT_FONT_SIZE_PX = 32; // Adjusted for potentially more words/smaller segments
+        const TEXT_CANVAS_WIDTH = 256;
+        const TEXT_CANVAS_HEIGHT = 64;
+        const MAX_WORDS_ON_WHEEL = 10;
+
+        const SEGMENT_COLORS = [ // New vibrant colors
+            0xFF6B6B, // Vibrant Red
+            0xFFD93D, // Vibrant Yellow
+            0x6BCB77, // Vibrant Green
+            0x4D96FF, // Vibrant Blue
+            0xC77DFF, // Vibrant Purple
+            0xFF9B54, // Vibrant Orange
+            0x3DCCC7, // Vibrant Teal
+            0xFF7EB9  // Vibrant Pink
+        ];
+
+        // --- Initialization ---
+        async function init() {
+            try {
+                const response = await fetch('words.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                ALL_WORDS_DATA = await response.json();
+
+                if (!ALL_WORDS_DATA || ALL_WORDS_DATA.length === 0) {
+                     throw new Error("Word data is empty or failed to load correctly.");
+                }
+
+                // Setup Three.js
+                scene = new THREE.Scene();
+                scene.background = new THREE.Color(0xeeeeee);
+
+                const aspect = wheelContainer.clientWidth / wheelContainer.clientHeight;
+                camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
+                camera.position.z = WHEEL_RADIUS * 1.8;
+
+                renderer = new THREE.WebGLRenderer({ antialias: true });
+                renderer.setSize(wheelContainer.clientWidth, wheelContainer.clientHeight);
+                wheelContainer.appendChild(renderer.domElement);
+
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+                scene.add(ambientLight);
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
+                directionalLight.position.set(0, 1, 1);
+                scene.add(directionalLight);
+
+                wheelGroup = new THREE.Group();
+                scene.add(wheelGroup);
+
+                populateFilterButtons();
+
+                const uniqueBlends = getUniqueBlends();
+                if (uniqueBlends.length > 0) {
+                    handleFilterClick(uniqueBlends[0]); // Load first category by default
+                    spinButton.disabled = false;
+                    exampleSentenceEl.textContent = "Spin the wheel to get a word!";
+                } else {
+                    console.error("No word categories found in JSON data.");
+                    selectedWordEl.textContent = "Error";
+                    exampleSentenceEl.textContent = "No word data available.";
+                    spinButton.disabled = true;
+                }
+
+                spinButton.addEventListener('click', handleSpinClick);
+                window.addEventListener('resize', onWindowResize, false);
+
+                animate();
+
+            } catch (error) {
+                console.error("Failed to initialize game:", error);
+                selectedWordEl.textContent = "Error";
+                exampleSentenceEl.textContent = `Could not load word data. Please ensure 'words.json' is present. Details: ${error.message}`;
+                spinButton.disabled = true;
+            }
+        }
+
+        function getUniqueBlends() {
+            if (!ALL_WORDS_DATA || ALL_WORDS_DATA.length === 0) return [];
+            return [...new Set(ALL_WORDS_DATA.map(word => word.StartsWith))].sort();
+        }
+
+        function populateFilterButtons() {
+            const uniqueBlends = getUniqueBlends();
+            filterButtonsContainer.innerHTML = ''; // Clear existing buttons
+            uniqueBlends.forEach(blend => {
+                const button = document.createElement('button');
+                button.classList.add('filter-button');
+                button.textContent = blend.toUpperCase();
+                button.dataset.filter = blend;
+                button.addEventListener('click', () => handleFilterClick(blend));
+                filterButtonsContainer.appendChild(button);
+            });
+        }
+        
+        function getRandomSubarray(arr, size) {
+            const shuffled = [...arr].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, size);
+        }
+
+        function handleFilterClick(filterValue) {
+            if (isSpinning) return;
+
+            let filteredWords = ALL_WORDS_DATA.filter(word => word.StartsWith === filterValue);
+            
+            if (filteredWords.length > MAX_WORDS_ON_WHEEL) {
+                currentWords = getRandomSubarray(filteredWords, MAX_WORDS_ON_WHEEL);
+            } else {
+                currentWords = filteredWords;
+            }
+            
+            document.querySelectorAll('.filter-button').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === filterValue);
+            });
+
+            updateWheel();
+            clearWordDisplay();
+            spinButton.disabled = currentWords.length === 0;
+        }
+
+        function clearWordDisplay() {
+            selectedWordEl.textContent = "- - -";
+            if (currentWords.length > 0) {
+                exampleSentenceEl.textContent = "Spin the wheel to get a word!";
+            } else {
+                exampleSentenceEl.textContent = "No words in this category.";
+            }
+            visualizationArea.innerHTML = '<span>🎨</span>';
+            anime({
+                targets: [selectedWordEl, exampleSentenceEl, visualizationArea],
+                opacity: [1, 0.5],
+                duration: 200,
+                easing: 'linear',
+                complete: () => {
+                     anime({targets: [selectedWordEl, exampleSentenceEl, visualizationArea], opacity: [0.5,1], duration: 200, easing: 'linear'});
+                }
+            });
+        }
+        
+        function updateWheel() {
+            while (wheelGroup.children.length > 0) {
+                const child = wheelGroup.children[0];
+                wheelGroup.remove(child);
+                if (child.geometry) child.geometry.dispose();
+                if (child.material) {
+                    if (child.material.map) child.material.map.dispose();
+                    child.material.dispose();
+                }
+            }
+            wheelGroup.rotation.z = 0; 
+
+            if (currentWords.length === 0) {
+                renderer.render(scene, camera); 
+                return;
+            }
+
+            const numSegments = currentWords.length;
+            const segmentAngle = (2 * Math.PI) / numSegments;
+
+            for (let i = 0; i < numSegments; i++) {
+                const wordData = currentWords[i];
+                const startAngle = i * segmentAngle;
+
+                const segmentGeometry = new THREE.CircleGeometry(WHEEL_RADIUS, 32, startAngle, segmentAngle);
+                const segmentMaterial = new THREE.MeshStandardMaterial({ 
+                    color: SEGMENT_COLORS[i % SEGMENT_COLORS.length],
+                    side: THREE.DoubleSide,
+                    metalness: 0.1,
+                    roughness: 0.7
+                });
+                const segmentMesh = new THREE.Mesh(segmentGeometry, segmentMaterial);
+                wheelGroup.add(segmentMesh);
+
+                const textCanvas = document.createElement('canvas');
+                textCanvas.width = TEXT_CANVAS_WIDTH;
+                textCanvas.height = TEXT_CANVAS_HEIGHT;
+                const ctx = textCanvas.getContext('2d');
+                
+                ctx.fillStyle = 'rgba(255,255,255,0)'; 
+                ctx.fillRect(0,0, textCanvas.width, textCanvas.height);
+
+                ctx.font = `bold ${TEXT_FONT_SIZE_PX}px ${getComputedStyle(document.body).fontFamily}`;
+                ctx.fillStyle = '#000000'; // Darker black text
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                
+                let currentFontSize = TEXT_FONT_SIZE_PX;
+                let wordToDisplay = wordData.Word;
+                
+                // Adjust font size if text is too wide
+                if (ctx.measureText(wordToDisplay).width > TEXT_CANVAS_WIDTH * 0.85) {
+                    currentFontSize = TEXT_FONT_SIZE_PX * 0.8;
+                     ctx.font = `bold ${currentFontSize}px ${getComputedStyle(document.body).fontFamily}`;
+                }
+                if (ctx.measureText(wordToDisplay).width > TEXT_CANVAS_WIDTH * 0.85) { // Check again with reduced size
+                    currentFontSize = TEXT_FONT_SIZE_PX * 0.65;
+                     ctx.font = `bold ${currentFontSize}px ${getComputedStyle(document.body).fontFamily}`;
+                }
+                 if (ctx.measureText(wordToDisplay).width > TEXT_CANVAS_WIDTH * 0.85) { // Final check
+                    // If still too long, truncate (basic)
+                    // wordToDisplay = wordToDisplay.substring(0, 5) + ".."; 
+                    // For now, let's prioritize fitting by font size reduction
+                }
+
+
+                ctx.fillText(wordToDisplay, TEXT_CANVAS_WIDTH / 2, TEXT_CANVAS_HEIGHT / 2);
+
+                const textTexture = new THREE.CanvasTexture(textCanvas);
+                textTexture.needsUpdate = true;
+
+                const textMaterial = new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide });
+                const planeWidthRatio = segmentAngle / (Math.PI / 3); // Wider text for fewer segments
+                const planeWidth = WHEEL_RADIUS * TEXT_PLANE_SCALE_FACTOR * Math.min(1, planeWidthRatio);
+                const planeHeight = planeWidth / (TEXT_CANVAS_WIDTH / TEXT_CANVAS_HEIGHT) ;
+
+                const textGeometry = new THREE.PlaneGeometry(planeWidth, planeHeight);
+                const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+
+                const midAngle = startAngle + segmentAngle / 2;
+                const textDistance = WHEEL_RADIUS * 0.68; 
+                textMesh.position.set(
+                    Math.cos(midAngle) * textDistance,
+                    Math.sin(midAngle) * textDistance,
+                    0.01 
+                );
+                textMesh.rotation.z = midAngle - Math.PI / 2; 
+
+                wheelGroup.add(textMesh);
+            }
+            renderer.render(scene, camera);
+        }
+
+        function handleSpinClick() {
+            if (isSpinning || currentWords.length === 0) return;
+            isSpinning = true;
+            spinButton.disabled = true; // Disable while spinning
+
+            anime({
+                targets: spinButton,
+                scale: [
+                    { value: 0.9, duration: 100, easing: 'easeOutQuad' },
+                    { value: 1, duration: 100, easing: 'easeInQuad' }
+                ]
+            });
+
+            targetSegmentIndex = Math.floor(Math.random() * currentWords.length);
+            const numSegments = currentWords.length;
+            const segmentAngle = (2 * Math.PI) / numSegments;
+            const targetSegmentMiddleAngle = (targetSegmentIndex * segmentAngle) + (segmentAngle / 2);
+            let finalRotation = (Math.PI / 2) - targetSegmentMiddleAngle;
+            const numFullSpins = 5 + Math.floor(Math.random() * 3);
+            
+            const currentNormalizedRotation = (wheelGroup.rotation.z % (2 * Math.PI) + (2 * Math.PI)) % (2 * Math.PI);
+            const finalNormalizedRotation = (finalRotation % (2 * Math.PI) + (2 * Math.PI)) % (2 * Math.PI);
+
+            let rotationDifference = finalNormalizedRotation - currentNormalizedRotation;
+            if (rotationDifference > Math.PI) {
+                rotationDifference -= 2 * Math.PI;
+            } else if (rotationDifference < -Math.PI) {
+                rotationDifference += 2 * Math.PI;
+            }
+            
+            const totalTargetRotation = wheelGroup.rotation.z + rotationDifference - (numFullSpins * 2 * Math.PI) ;
+
+            anime({
+                targets: wheelGroup.rotation,
+                z: totalTargetRotation,
+                duration: 4000 + Math.random() * 1500, 
+                easing: 'easeOutQuint', 
+                complete: onSpinComplete
+            });
+        }
+
+        function onSpinComplete() {
+            isSpinning = false;
+            spinButton.disabled = false; // Re-enable after spin
+            const selectedWordObject = currentWords[targetSegmentIndex];
+            
+            if (selectedWordObject) {
+                displayWordInfo(selectedWordObject);
+            } else {
+                console.error("Selected word object is undefined after spin.");
+                clearWordDisplay();
+            }
+        }
+
+        function displayWordInfo(wordObject) {
+            selectedWordEl.textContent = wordObject.Word;
+            exampleSentenceEl.textContent = wordObject.ExampleSentence;
+            
+            const visualHtml = getImageVisual(wordObject.ImageIdea, wordObject.Word);
+            visualizationArea.innerHTML = ''; 
+            
+            const tempDiv = document.createElement('div');
+            // Ensure content is wrapped for consistent animation target
+            if (visualHtml.startsWith('<')) { // It's HTML (SVG or P)
+                tempDiv.innerHTML = visualHtml;
+                visualizationArea.appendChild(tempDiv.firstChild);
+            } else { // It's an emoji or text
+                const span = document.createElement('span');
+                span.innerHTML = visualHtml; // Use innerHTML for emojis
+                visualizationArea.appendChild(span);
+            }
+            
+
+            anime({
+                targets: [selectedWordEl, exampleSentenceEl, visualizationArea.firstChild],
+                opacity: [0, 1],
+                translateY: [10, 0],
+                duration: 500,
+                easing: 'easeOutExpo'
+            });
+        }
+        
+        function getImageVisual(imageIdea, word) {
+            const idea = imageIdea.toLowerCase();
+            const wordLower = word.toLowerCase();
+
+            // Emojis & Simple SVGs
+            if (idea === "a black cat" || (wordLower === "black" && idea.includes("cat")) || (wordLower === "sleek" && idea.includes("cat"))) return '🐈‍⬛';
+            if (idea === "a plus sign" || wordLower === "plus") return '<svg viewBox="0 0 20 20"><path d="M9 2 H 11 V 9 H 18 V 11 H 11 V 18 H 9 V 11 H 2 V 9 H 9 Z"/></svg>';
+            if (idea.includes("tilted line") || idea.includes("slant")) return '<svg viewBox="0 0 20 20"><line x1="2" y1="15" x2="18" y2="5" stroke="currentColor" stroke-width="2"/></svg>';
+            if (idea.includes("flat piece of stone") || idea.includes("slab")) return '<svg viewBox="0 0 24 12"><rect x="1" y="1" width="22" height="10" rx="2" ry="2" style="fill:grey; stroke:darkslategray; stroke-width:0.5;"/></svg>';
+            if (idea.includes("loose rope") || wordLower === "slack") return '〰️'; // or 🪢
+            if (idea.includes("door closing loudly") || wordLower === "slam") return '🚪💥';
+            if (idea.includes("speech bubble with \"cool!\"") || wordLower === "slang") return '<span>💬cool!</span>';
+            if (idea.includes("playground slide") || wordLower === "slide") return '🛝';
+            if (idea.includes("puddle of green goo") || wordLower === "slime") return '🦠';
+            if (idea.includes("turtle or snail") || wordLower === "slow") return '🐢';
+            if (idea.includes("a colorful flag waving") || wordLower === "flag") return '🚩';
+            if (idea.includes("a lightning bolt") || wordLower === "flash") return '⚡';
+            if (idea.includes("a bird flying") || wordLower === "fly") return '🕊️';
+            if (idea.includes("a smiling face") || wordLower === "glad") return '😊';
+            if (idea.includes("a spinning globe") || wordLower === "globe") return '🌍';
+            if (idea.includes("a bottle of glue") || idea.includes("glue")) return '💧'; // or 🧴
+            if (idea.includes("a small seedling in soil") || wordLower === "plant") return '🌱';
+            if (idea.includes("a purple plum") || wordLower === "plum") return '💜'; // Using purple heart as plum emoji is rare
+            if (idea.includes("blue sky") || wordLower === "blue") return '🟦☁️';
+            if (idea.includes("toy building block") || wordLower === "block") return '🧱';
+            if (idea.includes("hands clapping") || wordLower === "clap") return '👏';
+            if (idea.includes("wall clock") || wordLower === "clock") return '⏰';
+            if (idea.includes("a thin strip of wood") || wordLower === "slat") return '<svg viewBox="0 0 30 6"><rect x="0" y="0" width="30" height="5" style="fill:burlywood;stroke:saddlebrown;stroke-width:0.2;"/></svg>';
+            if (idea.includes("a small chalkboard") || wordLower === "slate") return '<svg viewBox="0 0 20 15"><rect x="1" y="1" width="18" height="13" style="fill:darkslategray;stroke:black;stroke-width:0.5;"/></svg>';
+            if (idea.includes("a bowl of coleslaw") || wordLower === "slaw") return '🥗';
+            if (idea.includes("a knight with a sword") || wordLower === "slay") return '⚔️';
+            if (idea.includes("a child on a sled in snow") || wordLower === "sled") return '🛷';
+            if (idea.includes("a child sleeping in a bed") || wordLower === "sleep") return '😴'; // or 🛌
+            if (idea.includes("falling ice pellets") || wordLower === "sleet") return '🌨️'; // or ❄️💧
+            if (idea.includes("the arm part of a shirt") || wordLower === "sleeve") return '👕';
+            if (idea.includes("santa's sleigh with reindeer") || wordLower === "sleigh") return '🛷🦌';
+            if (idea.includes("a slice of pizza or cake") || wordLower === "slice") return '🍕';
+            if (idea.includes("a wet, slippery surface") || wordLower === "slick") return '💦';
+            if (idea.includes("a slingshot or an arm sling") || wordLower === "sling") return '💪'; // arm sling or just general strength
+            if (idea.includes("a person slipping") || wordLower === "slip") return '🍌🚶'; // banana peel slip
+            if (idea.includes("a narrow opening or cut") || wordLower === "slit") return '✂️📄';
+            if (idea.includes("messy room or person") || wordLower === "slob") return '🐷'; // pig for messy
+            if (idea.includes("someone walking tiredly") || wordLower === "slog") return '😩🚶';
+            if (idea.includes("muddy, messy food for pigs") || wordLower === "slop") return '🥣🐷';
+            if (idea.includes("a grassy hill or ski hill") || wordLower === "slope") return '⛰️';
+            if (idea.includes("water splashing in a bucket") || wordLower === "slosh") return '🪣💦';
+            if (idea.includes("a coin slot in a machine") || wordLower === "slot") return '🎰';
+            if (idea.includes("a sloth hanging from a tree") || wordLower === "sloth") return '🦥';
+            if (idea.includes("a garden slug") || wordLower === "slug") return '🐌';
+            if (idea.includes("run-down houses") || wordLower === "slum") return '🏚️';
+            if (idea.includes("someone slouching tiredly") || wordLower === "slump") return '😞';
+            if (idea.includes("wavy lines representing speech") || wordLower === "slur") return '🗣️〰️';
+            if (idea.includes("melting snow on the ground") || wordLower === "slush") return '🫠❄️';
+            if (idea.includes("a cunning-looking fox") || wordLower === "sly") return '🦊';
+            if (idea.includes("rocket taking off") || wordLower === "blast") return '🚀💥';
+            if (idea.includes("small red droplet") || wordLower === "bleed") return '🩸';
+            if (idea.includes("blender with colorful fruits") || wordLower === "blend") return '🍓🍌🥤';
+            if (idea.includes("smiling in a hammock") || wordLower === "bliss") return '😊🏖️';
+            if (idea.includes("child blowing out candles") || wordLower === "blow") return '🎂💨';
+            if (idea.includes("face with rosy cheeks") || wordLower === "blush") return '😊😳';
+            if (idea.includes("seashell with a pearl") || wordLower === "clam") return '🦪';
+            if (idea.includes("cat's paw with claws") || wordLower === "claw") return '🐾😼';
+            if (idea.includes("hands with soap bubbles") || wordLower === "clean") return '🧼👏';
+            if (idea.includes("computer mouse with a click") || wordLower === "click") return '🖱️👆';
+            if (idea.includes("monkey climbing a tree") || wordLower === "climb") return '🐒🌳';
+            if (idea.includes("white fluffy cloud") || wordLower === "cloud") return '☁️';
+            if (idea.includes("kids painting together") || wordLower === "club") return '🎨🧑‍🤝‍🧑';
+            if (idea.includes("candle with a flickering flame") || wordLower === "flame") return '🕯️🔥';
+            if (idea.includes("pancake on a plate") || wordLower === "flat") return '🥞';
+            if (idea.includes("rubber duck in a bathtub") || wordLower === "float") return '🦆🛀';
+            if (idea.includes("wooden floor pattern") || wordLower === "floor") return '🪵';
+            if (idea.includes("river winding through hills") || wordLower === "flow") return '🏞️〰️';
+            if (idea.includes("person playing a flute") || wordLower === "flute") return '🎶笛';
+            if (idea.includes("clear drinking glass") || wordLower === "glass") return '🥛';
+            if (idea.includes("shiny car with sparkles") || wordLower === "gleam") return '🚗✨';
+            if (idea.includes("eagle soaring") || wordLower === "glide") return '🦅💨';
+            if (idea.includes("firefly lighting up") || wordLower === "glow") return '💡🐞';
+            if (idea.includes("checklist or a map") || wordLower === "plan") return '🗺️✔️';
+            if (idea.includes("children playing with a ball") || wordLower === "play") return '⚽👧👦';
+            if (idea.includes("speech bubble with \"please!\"") || wordLower === "please") return '💬🙏';
+            if (idea.includes("treasure map with an x") || wordLower === "plot") return '🗺️❌';
+            if (idea.includes("tractor plowing a field") || wordLower === "plow") return '🚜🌾';
+            if (idea.includes("electrical plug and socket") || wordLower === "plug") return '🔌⚡';
+            
+            // Default: return the idea as text if no specific visual
+            return `<p>${imageIdea}</p>`;
+        }
+
+
+        function onWindowResize() {
+            if (camera && renderer && wheelContainer) {
+                const newWidth = wheelContainer.clientWidth;
+                const newHeight = wheelContainer.clientHeight;
+
+                camera.aspect = newWidth / newHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(newWidth, newHeight);
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            if(renderer && scene && camera) {
+                 renderer.render(scene, camera);
+            }
+        }
+
+        // --- Start the application ---
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof THREE !== 'undefined' && typeof anime !== 'undefined') {
+                init();
+            } else {
+                console.error("Three.js or Anime.js failed to load.");
+                selectedWordEl.textContent = "Error";
+                exampleSentenceEl.textContent = "Required libraries (Three.js, Anime.js) not found. Please check CDN links.";
+                spinButton.disabled = true;
+            }
+        });
+
+    </script>
+</body>
+</html>
