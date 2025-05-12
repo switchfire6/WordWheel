@@ -2,6 +2,8 @@
 
 ![Word Wheel Fun Screenshot](screenshot.png)
 
+Try it here: (https://switchfire6.github.io/WordWheel/)
+
 ## Overview
 
 Word Wheel Fun! is a web-based interactive "Wheel of Fortune" style game designed for speech therapy sessions with children. It aims to make practicing word blends a fun and engaging experience. The application is a single HTML page that utilizes modern web technologies to deliver a smooth and visually appealing game.
